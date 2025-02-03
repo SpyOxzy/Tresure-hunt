@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Hunt</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .riddle {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            color: red;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .clue-container {
+            display: none;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .clue-container img {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        .clue-container p {
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Riddle Page -->
+    <div class="container" id="riddle-container">
+        <h2>Solve the Riddle</h2>
+        <p class="riddle">
+            I have weights but I'm not a scale.<br>
+            I have mirrors but I'm not a dressing room.<br>
+            I help people stay strong but I'm not a protein shake.<br>
+            What am I?
+        </p>
+        <input type="text" id="answer" placeholder="Enter your answer">
+        <button onclick="checkAnswer()">Submit</button>
+        <p id="message" class="message"></p>
+    </div>
+
+    <!-- Clue Page -->
+    <div class="clue-container" id="clue-container">
+        <h2>You've Found the Location!</h2>
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjMV1_icBNjskQ9R4zVc0S4KFDiSeoQzvbzZeO7tYnh2XWYJUCs_o9n2hw&s=10" alt="Arnold Image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9j-dcDJwfPcBA0bSiS8cIbOn99pUTMmv61g&s" alt="Basement Image">
+        </div>
+        <p><strong>Name:</strong> Swasthi</p>
+        <p><strong>Movie Dialogue:</strong> "Hasta la vista, baby!"</p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            var answer = document.getElementById("answer").value.toLowerCase().trim();
+            if (answer === "gym") {
+                alert("You got the location!"); // Popup message
+                document.getElementById("riddle-container").style.display = "none";
+                document.getElementById("clue-container").style.display = "block";
+            } else {
+                document.getElementById("message").innerText = "Wrong answer! Try again.";
+            }
+        }
+    </script>
+</body>
+</html>
